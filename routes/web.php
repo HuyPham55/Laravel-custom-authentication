@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,7 @@ Route::get('home', [LoginController::class, 'home'])->name('home');
 
 Route::get('forget-password', [ForgotPasswordController::class, 'getEmail']);
 Route::post('forget-password', [ForgotPasswordController::class, 'postEmail']);
+
+
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'getPassword']);
+Route::post('reset-password', [ResetPasswordController::class, 'updatePassword']);
